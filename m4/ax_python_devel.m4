@@ -151,12 +151,7 @@ $ac_distutils_result])
 	#
 	AC_MSG_CHECKING([for Python include path])
 	if test -z "$PYTHON_CPPFLAGS"; then
-		python_path=`$PYTHON -c "import distutils.sysconfig; \
-			print (distutils.sysconfig.get_python_inc ());"`
-		if test -n "${python_path}"; then
-			python_path="-I$python_path"
-		fi
-		PYTHON_CPPFLAGS=$python_path
+		PYTHON_CPPFLAGS="-I${STAGING_INCDIR}/${PYTHON_DIR}"
 	fi
 	AC_MSG_RESULT([$PYTHON_CPPFLAGS])
 	AC_SUBST([PYTHON_CPPFLAGS])
